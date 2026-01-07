@@ -1,0 +1,59 @@
+[package]
+name = "ptu"
+version = "0.1.0"
+edition = "2021"
+authors = ["ptu contributors"]
+description = "A cross-platform network port management tool similar to ss, lsof, and netstat"
+license = "MIT OR Apache-2.0"
+repository = "https://github.com/user/ptu"
+keywords = ["network", "port", "tcp", "udp", "cli"]
+categories = ["command-line-utilities", "network-programming"]
+readme = "README.md"
+
+[[bin]]
+name = "ptu"
+path = "src/main.rs"
+
+[dependencies]
+# CLI argument parsing
+clap = { version = "4.5", features = ["derive", "cargo"] }
+
+# Error handling
+anyhow = "1.0"
+thiserror = "1.0"
+
+# Serialization (for JSON output)
+serde = { version = "1.0", features = ["derive"] }
+serde_json = "1.0"
+
+# Table formatting
+tabled = "0.15"
+
+# Logging
+log = "0.4"
+env_logger = "0.11"
+
+[target.'cfg(target_os = "macos")'.dependencies]
+# macOS specific dependencies
+libc = "0.2"
+
+[target.'cfg(target_os = "linux")'.dependencies]
+# Linux specific dependencies
+libc = "0.2"
+
+[dev-dependencies]
+criterion = "0.5"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+panic = "abort"
+
+# Note: Benchmark configuration commented out until benchmark file is created
+# Uncomment and create benches/benchmark.rs to enable benchmarks
+# [[bench]]
+# name = "benchmark"
+# harness = false
+

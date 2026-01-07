@@ -1,0 +1,30 @@
+# Rust
+/target/
+**/*.rs.bk
+*.pdb
+
+# Cargo
+# For binary projects, we keep Cargo.lock for reproducible builds
+# Uncomment the line below if this becomes a library project
+# Cargo.lock
+
+# IDEs and editors
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+.DS_Store
+Thumbs.db
+
+# Logs
+logs/
+*.log
+
+# Temporary files
+*.tmp
+*.bak
+
+# Test coverage
+tarpaulin-report.html
+cobertura.xml

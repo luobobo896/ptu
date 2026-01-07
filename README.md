@@ -375,7 +375,7 @@ MIT OR Apache-2.0
 
 ## 作者
 
-ptu contributors
+Hanson
 
 ## 致谢
 
